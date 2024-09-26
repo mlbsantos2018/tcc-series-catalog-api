@@ -37,7 +37,7 @@ public class SerieController {
     }
 
     @GetMapping("/ano")
-    public List<Serie> findByAnoDeLancamento(@RequestParam Integer anoDeLancamento) {
+    public List<Serie> findByAnoDeLancamento(@RequestParam String anoDeLancamento) {
         return serieService.findByAnoDeLancamento(anoDeLancamento);
     }
 

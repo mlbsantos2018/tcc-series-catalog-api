@@ -21,7 +21,7 @@ public class SerieService {
         return serieRepository.findByCategoriaNomeContainingIgnoreCase(nomeCategoria);
     }
 
-    public List<Serie> findByAnoDeLancamento(Integer anoDeLancamento) {
+    public List<Serie> findByAnoDeLancamento(String anoDeLancamento) {
         return serieRepository.findByAnoDeLancamento(anoDeLancamento);
     }
 

@@ -18,6 +18,7 @@ public class Serie {
     private String id;
     private String titulo;
     private String descricao;
+    private String anoDeLancamento;
     @DBRef
     private Categoria categoria;
     @DBRef

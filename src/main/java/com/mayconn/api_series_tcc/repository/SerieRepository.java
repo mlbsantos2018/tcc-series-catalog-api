@@ -11,6 +11,6 @@ import com.mayconn.api_series_tcc.model.Serie;
 public interface SerieRepository extends MongoRepository<Serie, String> {
     List<Serie> findByTituloContainingIgnoreCase(String titulo);
     List<Serie> findByCategoriaNomeContainingIgnoreCase(String nomeCategoria);
-    List<Serie> findByAnoDeLancamento(Integer anoDeLancamento);
+    List<Serie> findByAnoDeLancamento(String anoDeLancamento);
     List<Serie> findByAvaliacoesNotaGreaterThanEqual(Double nota);
 }
