@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SerieService {
@@ -33,7 +34,11 @@ public class SerieService {
     }
 
     public List<Serie> findByNotaMinima(Double nota) {
-        return serieRepository.findByAvaliacoesNotaGreaterThanEqual(nota);
+        List<Serie> series = serieRepository.findAll(); 
+        return series.stream()
+                    .filter(serie -> serie.getAvaliacoes().stream()
+                                        .anyMatch(avaliacao -> avaliacao.getNota() >= nota))
+                    .collect(Collectors.toList()); 
     }
 
     public Serie addSerie(Serie serie) {
