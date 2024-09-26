@@ -22,6 +22,10 @@ public class ComentarioService {
                 .orElseThrow(() -> new RuntimeException("Comentário não encontrado"));
     }
 
+    public List<Comentario> findBySerieId(String serieId) {
+        return comentarioRepository.findBySerieId(serieId);
+    }
+
     public Comentario save(Comentario comentario) {
         return comentarioRepository.save(comentario);
     }
@@ -30,7 +34,7 @@ public class ComentarioService {
         Comentario existingComentario = findById(id);
         existingComentario.setTexto(comentario.getTexto());
         existingComentario.setUsuario(comentario.getUsuario());
-        existingComentario.setSerie(comentario.getSerie());
+        existingComentario.setSerieId(comentario.getSerieId());
         return comentarioRepository.save(existingComentario);
     }
 

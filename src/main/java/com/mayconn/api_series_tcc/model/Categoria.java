@@ -16,6 +16,4 @@ public class Categoria {
     @Id
     private String id;
     private String nome;
-    @DBRef
-    private List<Serie> series;
 }

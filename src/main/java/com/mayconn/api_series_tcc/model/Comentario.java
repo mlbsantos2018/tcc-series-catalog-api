@@ -16,6 +16,5 @@ public class Comentario {
     private String id;
     private String texto;
     private String usuario;
-    @DBRef
-    private Serie serie;
+    private String serieId;
 }

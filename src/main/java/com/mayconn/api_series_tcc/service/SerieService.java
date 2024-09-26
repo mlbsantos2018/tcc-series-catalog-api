@@ -34,11 +34,9 @@ public class SerieService {
     }
 
     public List<Serie> findByNotaMinima(Double nota) {
-        List<Serie> series = serieRepository.findAll(); 
-        return series.stream()
-                    .filter(serie -> serie.getAvaliacoes().stream()
-                                        .anyMatch(avaliacao -> avaliacao.getNota() >= nota))
-                    .collect(Collectors.toList()); 
+        return serieRepository.findAll().stream()
+                .filter(serie -> Double.parseDouble(serie.getNota()) >= nota)
+                .collect(Collectors.toList());
     }
 
     public Serie addSerie(Serie serie) {

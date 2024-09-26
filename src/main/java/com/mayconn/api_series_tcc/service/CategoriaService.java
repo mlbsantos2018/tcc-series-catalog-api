@@ -29,7 +29,6 @@ public class CategoriaService {
     public Categoria update(String id, Categoria categoria) {
         Categoria existingCategoria = findById(id);
         existingCategoria.setNome(categoria.getNome());
-        existingCategoria.setSeries(categoria.getSeries());
         return categoriaRepository.save(existingCategoria);
     }
 

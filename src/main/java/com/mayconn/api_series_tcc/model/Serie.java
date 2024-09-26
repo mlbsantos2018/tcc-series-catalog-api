@@ -19,11 +19,8 @@ public class Serie {
     private String id;
     private String titulo;
     private String descricao;
+    private String nota;
     private String anoDeLancamento;
     @DBRef
     private Categoria categoria;
-    @DBRef
-    private List<Avaliacao> avaliacoes = new ArrayList<>();
-    @DBRef
-    private List<Comentario> comentarios = new ArrayList<>();
 }

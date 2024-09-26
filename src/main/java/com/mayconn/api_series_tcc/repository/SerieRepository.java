@@ -14,5 +14,5 @@ public interface SerieRepository extends MongoRepository<Serie, String> {
     List<Serie> findByCategoriaNomeContainingIgnoreCase(String nomeCategoria);
     List<Serie> findByCategoriaIn(List<Categoria> categorias);
     List<Serie> findByAnoDeLancamento(String anoDeLancamento);
-    List<Serie> findByAvaliacoesNotaGreaterThanEqual(Double nota);
+    List<Serie> findByNotaGreaterThanEqual(Double nota);
 }

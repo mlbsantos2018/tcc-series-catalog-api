@@ -26,6 +26,11 @@ public class ComentarioController {
         return ResponseEntity.ok(comentario);
     }
 
+    @GetMapping("/serie/{serieId}")
+    public List<Comentario> findBySerieId(@PathVariable String serieId) {
+        return comentarioService.findBySerieId(serieId);
+    }
+
     @PostMapping
     public Comentario save(@RequestBody Comentario comentario) {
         return comentarioService.save(comentario);
