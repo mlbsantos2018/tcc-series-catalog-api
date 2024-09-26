@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -22,7 +23,7 @@ public class Serie {
     @DBRef
     private Categoria categoria;
     @DBRef
-    private List<Avaliacao> avaliacoes;
+    private List<Avaliacao> avaliacoes = new ArrayList<>();
     @DBRef
-    private List<Comentario> comentarios;
+    private List<Comentario> comentarios = new ArrayList<>();
 }

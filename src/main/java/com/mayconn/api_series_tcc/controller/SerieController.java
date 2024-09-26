@@ -26,23 +26,23 @@ public class SerieController {
         return ResponseEntity.ok(serie);
     }
 
-    @GetMapping("/titulo")
-    public List<Serie> findByTitulo(@RequestParam String titulo) {
+    @GetMapping("/titulo/{titulo}")
+    public List<Serie> findByTitulo(@PathVariable String titulo) {
         return serieService.findByTitulo(titulo);
     }
 
-    @GetMapping("/categoria")
-    public List<Serie> findByCategoriaNome(@RequestParam String nomeCategoria) {
+    @GetMapping("/categoria/{nomeCategoria}")
+    public List<Serie> findByCategoriaNome(@PathVariable String nomeCategoria) {
         return serieService.findByCategoriaNome(nomeCategoria);
     }
 
-    @GetMapping("/ano")
-    public List<Serie> findByAnoDeLancamento(@RequestParam String anoDeLancamento) {
+    @GetMapping("/ano/{anoDeLancamento}")
+    public List<Serie> findByAnoDeLancamento(@PathVariable String anoDeLancamento) {
         return serieService.findByAnoDeLancamento(anoDeLancamento);
     }
 
-    @GetMapping("/avaliacao")
-    public List<Serie> findByNotaMinima(@RequestParam Double nota) {
+    @GetMapping("/avaliacao/{nota}")
+    public List<Serie> findByNotaMinima(@PathVariable Double nota) {
         return serieService.findByNotaMinima(nota);
     }
 

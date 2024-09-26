@@ -1,6 +1,8 @@
 package com.mayconn.api_series_tcc.service;
 
+import com.mayconn.api_series_tcc.model.Categoria;
 import com.mayconn.api_series_tcc.model.Serie;
+import com.mayconn.api_series_tcc.repository.CategoriaRepository;
 import com.mayconn.api_series_tcc.repository.SerieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,12 +15,17 @@ public class SerieService {
     @Autowired
     private SerieRepository serieRepository;
 
+    @Autowired
+    private CategoriaRepository categoriaRepository;
+    
+
     public List<Serie> findByTitulo(String titulo) {
         return serieRepository.findByTituloContainingIgnoreCase(titulo);
     }
 
     public List<Serie> findByCategoriaNome(String nomeCategoria) {
-        return serieRepository.findByCategoriaNomeContainingIgnoreCase(nomeCategoria);
+        List<Categoria> categorias = categoriaRepository.findByNomeContainingIgnoreCase(nomeCategoria);
+        return serieRepository.findByCategoriaIn(categorias);
     }
 
     public List<Serie> findByAnoDeLancamento(String anoDeLancamento) {
